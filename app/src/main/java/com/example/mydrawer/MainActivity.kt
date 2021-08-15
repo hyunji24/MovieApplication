@@ -219,13 +219,16 @@ class MainActivity : AppCompatActivity(), FragmentCallback {
     }
 
     override fun onFragmentSelected(item: FragmentCallback.FragmentItem, bundle: Bundle?){
+
+        val index=bundle?.getInt("index",0)
+
         var fragment: Fragment
         when(item){
             FragmentCallback.FragmentItem.ITEM1->{
                 fragment=Fragment1()
             }
             FragmentCallback.FragmentItem.ITEM2->{
-                fragment=Fragment2()
+                fragment=Fragment2.newInstance(index)
             }
             FragmentCallback.FragmentItem.ITEM3->{
                 fragment=Fragment3()

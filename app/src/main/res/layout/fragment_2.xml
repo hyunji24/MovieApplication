@@ -27,6 +27,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/thumbnailPoster"
                         android:layout_width="140dp"
                         android:layout_height="200dp"
                         android:layout_margin="10dp"
@@ -370,6 +371,7 @@
                     android:textSize="16sp"/>
 
                 <TextView
+                    android:id="@+id/plotText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/synopsis"/>

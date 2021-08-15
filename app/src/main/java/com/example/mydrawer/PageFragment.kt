@@ -16,7 +16,7 @@ class PageFragment : Fragment() {
 
     private lateinit var binding: FragmentPageBinding
 
-    //var index:Int=0
+    var index:Int=0
     var imageId : String? = null
     var title: String? = null
     var details1: String? = null
@@ -28,13 +28,14 @@ class PageFragment : Fragment() {
 
 
 
-    override fun onAttach(context: Context) {//액티비티에 추가될 때 호출되어 액티비티를 받아오는 콜백 함수 onAttach
-
+    override fun onAttach(context: Context) { //'프레그먼트 객체' 만들었다고 바로동작하지x!  ->액티비티 위에 올라가야 함
+        //onAttach: 프래그먼트가 액티비티 위에 올라갔다는걸 알려줌. 파라미터로 받은 액티비티 객체를 콜백변수에.
+        //https://june0122.github.io/2021/05/26/android-bnr-12/ 설명 굿!
         super.onAttach(context)
-        //callback=context as FragmentCallback?
-    if(context is FragmentCallback)
+        //callback=context as FragmentCallback? ->안됨ㅠ
+    if(context is FragmentCallback)//액티비티에 추가될 때 호출되어 액티비티를 받아오는 콜백 함수 onAttach
     {
-        callback = context
+        callback = context //액티비티에 있는 함수 쓰기위해
     }else
     {
         Log.d(TAG, "Activity not FragmentCallback")
@@ -48,7 +49,7 @@ class PageFragment : Fragment() {
 
         val bundle=arguments
         if(bundle!=null){
-            //index=bundle.getInt("index",0)
+            index=bundle.getInt("index",0)
             imageId=bundle.getString("imageId")
             title=bundle.getString("title")
             details1=bundle.getString("details1")
@@ -90,7 +91,7 @@ class PageFragment : Fragment() {
         binding.detailsButton.setOnClickListener {
             if(callback!=null){
                 val bundle=Bundle()
-                bundle.putInt("index",0)
+                bundle.putInt("index",index)
 
                 callback!!.onFragmentSelected(FragmentCallback.FragmentItem.ITEM2,bundle)
             }
@@ -106,15 +107,11 @@ class PageFragment : Fragment() {
         private const val TAG = "PageFragment"
 
 
-        fun newInstance(
-            imageId: String?,
-            title: String?,
-            details1: String?,
-            details2: String?
-        ): PageFragment {
+        fun newInstance(index:Int, imageId: String?, title: String?, details1: String?, details2: String?): PageFragment {
             val fragment = PageFragment()
 
             val bundle = Bundle()
+            bundle.putInt("index",index)
             bundle.putString("imageId", imageId)
             bundle.putString("title", title)
             bundle.putString("details1", details1)

@@ -32,7 +32,7 @@ class Fragment1 : Fragment() {
             val title=movieData.movieInfo?.movieNm?:""
             val detail1=movieData.movieInfo?.audiCnt?:""
             val detail2=movieData.movieDetails?.audits?.get(0)?.watchGradeNm?:""
-            val fragment=PageFragment.newInstance(imageId,title,detail1,detail2)
+            val fragment=PageFragment.newInstance(position,imageId,title,detail1,detail2)
 
 
             return fragment
@@ -67,5 +67,6 @@ class Fragment1 : Fragment() {
 
         return binding.root
     }
+
 
 }
