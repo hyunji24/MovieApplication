@@ -288,7 +288,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:background="#EAE6DA"
+                android:background="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
@@ -298,6 +298,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
+                    android:textColor="#BAB7B7"
                     android:textStyle="bold"
                     android:text="감독/출연/영화사"/>
 
@@ -310,12 +311,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="감독"
+                        android:textColor="@color/white"
                         android:layout_marginRight="20dp"
                         android:textStyle="bold"/>
                     <TextView
                         android:id="@+id/directorTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:text="외국인"/>
 
                 </LinearLayout>
@@ -328,12 +331,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="출연"
+                        android:textColor="@color/white"
                         android:layout_marginRight="20dp"
                         android:textStyle="bold"/>
                     <TextView
                         android:id="@+id/actorTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:text="레오나르도 디카프리오, 케이트 윈슬렛"/>
 
                 </LinearLayout>
@@ -346,12 +351,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="영화사"
+                        android:textColor="@color/white"
                         android:layout_marginRight="20dp"
                         android:textStyle="bold"/>
                     <TextView
                         android:id="@+id/companyTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:text="롯데시네마"/>
 
                 </LinearLayout>
@@ -360,6 +367,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/black"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
@@ -367,6 +375,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="줄거리"
+                    android:textColor="#BAB7B7"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
 
@@ -374,12 +383,14 @@
                     android:id="@+id/plotText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white"
                     android:text="@string/synopsis"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/black"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
@@ -390,6 +401,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="#BAB7B7"
                         android:layout_centerVertical="true"
                         android:text="한줄평"
                         android:textStyle="bold"

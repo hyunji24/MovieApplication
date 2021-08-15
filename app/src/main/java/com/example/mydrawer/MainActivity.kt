@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity(), FragmentCallback {
     fun requestBoxOffice(){
 
         val apiKey="1e4a57d8da43f730f218f01b05b808f5"
-        val targetDt="20210731"
+        val targetDt="20210805"
         val url="http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${apiKey}&targetDt=${targetDt}"
 
         val request=object: StringRequest(

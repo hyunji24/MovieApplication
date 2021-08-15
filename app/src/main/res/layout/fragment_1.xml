@@ -24,7 +24,6 @@
         style="@style/Widget.MaterialComponents.Chip.Choice"
         app:chipBackgroundColor="@color/teal_200"
         app:checkedIconEnabled="true"
-        android:checked="true"
         android:text="스와이프"
         android:textColor="#FFFFFF" />
 
@@ -44,7 +43,6 @@
         android:id="@+id/viewContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
         android:background="@drawable/purple_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.mydrawer.databinding.Fragment1Binding
@@ -45,6 +47,39 @@ class Fragment1 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding=Fragment1Binding.inflate(inflater, container, false)
+
+        binding.chip.setOnCheckedChangeListener { button, isChecked ->
+            if(isChecked){
+                binding.chip2.isChecked=false
+                binding.viewContainer.isVisible=true
+                binding.viewContainer2.isVisible=false
+
+                showPager(binding)
+
+            }
+        }
+        binding.chip2.setOnCheckedChangeListener { button, isChecked ->
+            if(isChecked){
+                binding.chip.isChecked=false
+                binding.viewContainer.isVisible=false
+                binding.viewContainer2.isVisible=true
+
+                showList(binding)
+
+
+
+            }
+        }
+
+        showPager(binding)
+
+
+
+        return binding.root
+    }
+
+    fun showPager(binding:Fragment1Binding){
+
         binding.pager.adapter=PagerAdapter(requireActivity().supportFragmentManager,requireActivity().lifecycle) //TODO activity!! -> requireActivity()
         binding.pager.orientation= ViewPager2.ORIENTATION_HORIZONTAL
 
@@ -63,10 +98,16 @@ class Fragment1 : Fragment() {
                 binding.indicator.animatePageSelected(position)
             }
         })
-
-
-        return binding.root
     }
 
+    fun showList(binding: Fragment1Binding){
+        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.recyclerView.layoutManager = layoutManager
 
+
+        val adapter = MovieListRecyclerAdapter()
+
+        binding.recyclerView.adapter=adapter
+
+    }
 }
